@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.mybatis.dao.GoodsMapper">
-  <resultMap id="BaseResultMap" type="com.example.mybatis.entity.Goods">
+<mapper namespace="com.chen.campus_trade.dao.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.chen.campus_trade.dao.entity.Goods">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="goodsname" jdbcType="VARCHAR" property="goodsname" />
     <result column="textdesc" jdbcType="VARCHAR" property="textdesc" />
@@ -76,7 +76,7 @@
     id, goodsname, textdesc, goodsLmg, goodsPrice, goodsState, means, create_time, user_id, 
     update_time, goodssort
   </sql>
-  <select id="selectByExample" parameterType="com.example.mybatis.entity.GoodsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.chen.campus_trade.dao.entity.GoodsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,13 +100,13 @@
     delete from goods
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.mybatis.entity.GoodsExample">
+  <delete id="deleteByExample" parameterType="com.chen.campus_trade.dao.entity.GoodsExample">
     delete from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.mybatis.entity.Goods">
+  <insert id="insert" parameterType="com.chen.campus_trade.dao.entity.Goods">
     insert into goods (id, goodsname, textdesc, 
       goodsLmg, goodsPrice, goodsState, 
       means, create_time, user_id, 
@@ -116,7 +116,7 @@
       #{means,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{goodssort,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.mybatis.entity.Goods">
+  <insert id="insertSelective" parameterType="com.chen.campus_trade.dao.entity.Goods">
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -189,7 +189,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.mybatis.entity.GoodsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.chen.campus_trade.dao.entity.GoodsExample" resultType="java.lang.Long">
     select count(*) from goods
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -253,7 +253,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.mybatis.entity.Goods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.chen.campus_trade.dao.entity.Goods">
     update goods
     <set>
       <if test="goodsname != null">
@@ -289,7 +289,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.mybatis.entity.Goods">
+  <update id="updateByPrimaryKey" parameterType="com.chen.campus_trade.dao.entity.Goods">
     update goods
     set goodsname = #{goodsname,jdbcType=VARCHAR},
       textdesc = #{textdesc,jdbcType=VARCHAR},

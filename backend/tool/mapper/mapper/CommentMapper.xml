@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.campus_trade.dao.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.chen.campus_trade.dao.entity.Comment">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="seller_id" jdbcType="INTEGER" property="seller_id" />
+    <result column="buyer_id" jdbcType="INTEGER" property="buyer_id" />
+    <result column="comment_state" jdbcType="VARCHAR" property="comment_state" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_time, content, seller_id, buyer_id, comment_state, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="com.chen.campus_trade.dao.entity.Comment">
+    insert into comment (id, create_time, content, 
+      seller_id, buyer_id, comment_state, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{create_time,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR}, 
+      #{seller_id,jdbcType=INTEGER}, #{buyer_id,jdbcType=INTEGER}, #{comment_state,jdbcType=VARCHAR}, 
+      #{update_time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chen.campus_trade.dao.entity.Comment">
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="create_time != null">
+        create_time,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="seller_id != null">
+        seller_id,
+      </if>
+      <if test="buyer_id != null">
+        buyer_id,
+      </if>
+      <if test="comment_state != null">
+        comment_state,
+      </if>
+      <if test="update_time != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="create_time != null">
+        #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="seller_id != null">
+        #{seller_id,jdbcType=INTEGER},
+      </if>
+      <if test="buyer_id != null">
+        #{buyer_id,jdbcType=INTEGER},
+      </if>
+      <if test="comment_state != null">
+        #{comment_state,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null">
+        #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chen.campus_trade.dao.entity.Comment">
+    update comment
+    <set>
+      <if test="create_time != null">
+        create_time = #{create_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="seller_id != null">
+        seller_id = #{seller_id,jdbcType=INTEGER},
+      </if>
+      <if test="buyer_id != null">
+        buyer_id = #{buyer_id,jdbcType=INTEGER},
+      </if>
+      <if test="comment_state != null">
+        comment_state = #{comment_state,jdbcType=VARCHAR},
+      </if>
+      <if test="update_time != null">
+        update_time = #{update_time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chen.campus_trade.dao.entity.Comment">
+    update comment
+    set create_time = #{create_time,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=VARCHAR},
+      seller_id = #{seller_id,jdbcType=INTEGER},
+      buyer_id = #{buyer_id,jdbcType=INTEGER},
+      comment_state = #{comment_state,jdbcType=VARCHAR},
+      update_time = #{update_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

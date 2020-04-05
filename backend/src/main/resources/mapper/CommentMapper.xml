@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.mybatis.dao.CommentMapper">
-  <resultMap id="BaseResultMap" type="com.example.mybatis.entity.Comment">
+<mapper namespace="com.chen.campus_trade.dao.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.chen.campus_trade.dao.entity.Comment">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="content" jdbcType="VARCHAR" property="content" />
@@ -71,7 +71,7 @@
   <sql id="Base_Column_List">
     id, create_time, content, seller_id, buyer_id, comment_state, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.example.mybatis.entity.CommentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.chen.campus_trade.dao.entity.CommentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -95,13 +95,13 @@
     delete from comment
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.mybatis.entity.CommentExample">
+  <delete id="deleteByExample" parameterType="com.chen.campus_trade.dao.entity.CommentExample">
     delete from comment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.mybatis.entity.Comment">
+  <insert id="insert" parameterType="com.chen.campus_trade.dao.entity.Comment">
     insert into comment (id, create_time, content, 
       seller_id, buyer_id, comment_state, 
       update_time)
@@ -109,7 +109,7 @@
       #{sellerId,jdbcType=INTEGER}, #{buyerId,jdbcType=INTEGER}, #{commentState,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.mybatis.entity.Comment">
+  <insert id="insertSelective" parameterType="com.chen.campus_trade.dao.entity.Comment">
     insert into comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -158,7 +158,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.mybatis.entity.CommentExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.chen.campus_trade.dao.entity.CommentExample" resultType="java.lang.Long">
     select count(*) from comment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -206,7 +206,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.mybatis.entity.Comment">
+  <update id="updateByPrimaryKeySelective" parameterType="com.chen.campus_trade.dao.entity.Comment">
     update comment
     <set>
       <if test="createTime != null">
@@ -230,7 +230,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.mybatis.entity.Comment">
+  <update id="updateByPrimaryKey" parameterType="com.chen.campus_trade.dao.entity.Comment">
     update comment
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=VARCHAR},
