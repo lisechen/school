@@ -1,0 +1,56 @@
+{
+  "pages": [
+        "pages/index/index",
+        "pages/information/information",
+    "pages/shouye/shouye",
+
+    "pages/movie-detail/movie-detail",
+
+    "pages/fabu/fabu",
+    "pages/logs/logs",                                                                 
+    "pages/comment/comment",
+    "pages/mine/mine",
+    "pages/search/search",
+    "pages/searchin/searchin",
+    "pages/search/searchresult/searchresult"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#AB82FF",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ADD8E6"
+  },
+  "tabBar": {
+    "color": "#AB82FF",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/shouye/shouye",
+        "text": "首页",
+        "iconPath": "pages/img/shouye_a.png",
+        "selectedIconPath": "pages/img/shouye_b.png"
+      },
+      {
+        "pagePath": "pages/fabu/fabu",
+        "iconPath": "pages/img/fabu_a.png",
+        "selectedIconPath": "pages/img/fabu_b.png",
+        "text": "发布"
+      },
+      {
+        "pagePath": "pages/comment/comment",
+        "text": "消息",
+        "iconPath": "pages/img/comment_a.png",
+        "selectedIconPath": "pages/img/comment_b.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "pages/img/mine_a.png",
+        "selectedIconPath": "pages/img/mine_b.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap65.json"
+}

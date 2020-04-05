@@ -1,0 +1,14 @@
+/* pages/components/search/search.wxss */
+.search{
+  height: 70rpx;
+  padding: 10rpx;
+  background-color: #AB82FF;
+}
+  navigator{
+display: flex;
+justify-content: center;
+align-items: center;
+ background-color:beige;
+ border-radius: 15rpx
+
+  }

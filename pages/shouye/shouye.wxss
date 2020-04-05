@@ -1,0 +1,106 @@
+/* pages/shouye/shouye.wxss */
+
+.b{
+  height:300rpx;
+  width:750rpx ;
+  color: var(--themeColor);
+  border-bottom-color: 2rpx var(--themeColor)
+}
+.nav{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: 	#FCFCFC;
+border-bottom: 22rpx solid 	#E6E6FA;
+
+}
+.nav .aa{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+.aa image{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  margin-top: 30rpx;
+}
+.aa text{
+font-size: 25rpx;
+color: #8B5F65;
+}
+
+.nav .ab{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+.ab image{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  margin-top: 30rpx;
+}
+.ab text{
+font-size: 25rpx;
+color: #8B5F65;
+}
+.nav .ac{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+.ac image{
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+  margin-top: 30rpx;
+}
+.ac text{
+font-size: 25rpx;
+color: #8B5F65;
+}
+.nav .ad{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+.ad image{
+  width: 110rpx;
+  height: 110rpx;
+  margin-bottom: 10rpx;
+  margin-top: 30rpx;
+}
+.ad text{
+font-size: 25rpx;
+color: #8B5F65;
+}
+.a{
+  border-bottom: 3rpx solid #E6E6FA;
+  border-left: 10rpx solid #8B5F65;
+
+}
+.a text{
+  font-size: 35rpx;
+  border-left:30rpx solid snow ;
+  margin-bottom: 30rpx;
+   color: 	#878787
+}
+.tuijian{
+  background-color:  #FCFCFC;
+}
+.tuijian text{
+  font-size: 35rpx;
+  color: 	#878787;
+}

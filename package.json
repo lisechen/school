@@ -1,0 +1,7 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "we-validator": "^2.1.10"
+  }
+}

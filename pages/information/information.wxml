@@ -1,0 +1,27 @@
+  <view class='main'>
+      <view>
+ 
+        <!--注册信息 -->
+        <form  bindsubmit="bindinguser" bindreset="formReset">
+        <view>
+        <view class="adj">  </view>
+        <text class="add_user">
+            完善个人信息
+        </text>
+                  <input placeholder='请输入姓名' class="username" name="username" id="username"  value="{{username}}"  style="margin-top:90px;">
+          </input>
+ 
+ 
+          <input placeholder='请输入性别' class="username"name="gender" id="gender" value="{{gender}}" style="margin-top:145px;">
+          </input>
+          <input placeholder='请输入联系方式' class="username"name="mobile" id="mobile" value="{{mobile}}" style="margin-top:200px;">
+          </input>
+
+          <button form-type="submit" class="ad"style="margin-top:430px;" type="primary" bindtap='bindinguser'  >提交
+          </button>
+          </view>
+          </form>
+      </view>
+  </view>
+ 
+ 
