@@ -3,9 +3,18 @@
 		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
-
+<!-- 学习链接参考：
+https://www.cnblogs.com/throwable/p/12046848.html
+https://mybatis.org/generator/quickstart.html#
+-->
 <generatorConfiguration>
+
+	<!--需要的mysql驱动的jar包，一定要放到当前目录下面，这个是mysql8.0以后的驱动jar,如果是更早版本的则要修改-->
 	<classPathEntry location="mysql-connector-java-8.0.19.jar" />
+	<!--mysql 5.6的可以使用这个-->
+	<!--<classPathEntry location="mysql.jar" />-->
+
+
 	<context id="chen_mybatis_generate" targetRuntime="MyBatis3" defaultModelType="flat">
 	<!--<context id="DB2Tables" targetRuntime="MyBatis3Simple">-->
 	    <!--<plugin type="org.mybatis.generator.api.PaginationPlugin"></plugin>-->
@@ -13,26 +22,35 @@
 			<property name="suppressDate" value="true" />
 			<property name="suppressAllComments" value="true"/>
 		</commentGenerator>
+
+		<!--mysql 老版<8.0的时候使用-->
+		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/school" userId="root" password="12345678">-->
+			<!--<property name="nullCatalogMeansCurrent" value="true" />-->
+		<!--</jdbcConnection>-->
+
+		<!--mysql 老版>=8.0的时候使用-->
 		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/school" userId="root" password="12345678">
 			<property name="nullCatalogMeansCurrent" value="true" />
 		</jdbcConnection>
+
+
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 
-		<!--生成的java entity 放置的目录 -->
-		<javaModelGenerator targetPackage="com.chen.campus_trade.dao.entity" targetProject="/Users/admin/work/project/19.lan_work_/school/backend/tool/mapper">
+		<!--生成的java entity 放置的目录 ,根据需要修改targetPackage，targetProject,目前的配置为mapper会生成在当前同级目录的mapper文件夹内部 -->
+		<javaModelGenerator targetPackage="com.chen.campus_trade.dao.entity" targetProject="mapper">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
-		<!--生成的xml放置的目录-->
-		<sqlMapGenerator targetPackage="mapper" targetProject="/Users/admin/work/project/19.lan_work_/school/backend/tool/mapper">
+		<!--生成的xml放置的目录 ,根据需要修改targetPackage，targetProject -->
+		<sqlMapGenerator targetPackage="mapper" targetProject="mapper">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<!--生成的mapper 接口放置的目录-->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.chen.campus_trade.dao.mapper" targetProject="/Users/admin/work/project/19.lan_work_/school/backend/tool/mapper">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.chen.campus_trade.dao.mapper" targetProject="mapper">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
