@@ -1,33 +1,27 @@
 package com.chen.campus_trade.dao.entity;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
-public class Goods implements Serializable {
+public class Goods {
     private Integer id;
 
-    private String goodsname;
+    private String name;
 
-    private String textdesc;
+    private String desc;
 
-    private String goodslmg;
+    private String image;
 
-    private BigDecimal goodsprice;
+    private Double price;
 
-    private String goodsstate;
+    private String status;
 
-    private String means;
+    private Date create_time;
 
-    private Date createTime;
+    private Integer user_id;
 
-    private Integer userId;
+    private Date update_time;
 
-    private Date updateTime;
-
-    private String goodssort;
-
-    private static final long serialVersionUID = 1L;
+    private String category;
 
     public Integer getId() {
         return id;
@@ -37,105 +31,75 @@ public class Goods implements Serializable {
         this.id = id;
     }
 
-    public String getGoodsname() {
-        return goodsname;
+    public String getName() {
+        return name;
     }
 
-    public void setGoodsname(String goodsname) {
-        this.goodsname = goodsname == null ? null : goodsname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public String getTextdesc() {
-        return textdesc;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setTextdesc(String textdesc) {
-        this.textdesc = textdesc == null ? null : textdesc.trim();
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
     }
 
-    public String getGoodslmg() {
-        return goodslmg;
+    public String getImage() {
+        return image;
     }
 
-    public void setGoodslmg(String goodslmg) {
-        this.goodslmg = goodslmg == null ? null : goodslmg.trim();
+    public void setImage(String image) {
+        this.image = image == null ? null : image.trim();
     }
 
-    public BigDecimal getGoodsprice() {
-        return goodsprice;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setGoodsprice(BigDecimal goodsprice) {
-        this.goodsprice = goodsprice;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public String getGoodsstate() {
-        return goodsstate;
+    public String getStatus() {
+        return status;
     }
 
-    public void setGoodsstate(String goodsstate) {
-        this.goodsstate = goodsstate == null ? null : goodsstate.trim();
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
     }
 
-    public String getMeans() {
-        return means;
+    public Date getCreate_time() {
+        return create_time;
     }
 
-    public void setMeans(String means) {
-        this.means = means == null ? null : means.trim();
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Date getUpdate_time() {
+        return update_time;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public String getCategory() {
+        return category;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getGoodssort() {
-        return goodssort;
-    }
-
-    public void setGoodssort(String goodssort) {
-        this.goodssort = goodssort == null ? null : goodssort.trim();
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", goodsname=").append(goodsname);
-        sb.append(", textdesc=").append(textdesc);
-        sb.append(", goodslmg=").append(goodslmg);
-        sb.append(", goodsprice=").append(goodsprice);
-        sb.append(", goodsstate=").append(goodsstate);
-        sb.append(", means=").append(means);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", userId=").append(userId);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", goodssort=").append(goodssort);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public void setCategory(String category) {
+        this.category = category == null ? null : category.trim();
     }
 }

@@ -1,29 +1,26 @@
 package com.chen.campus_trade.dao.entity;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Order implements Serializable {
+public class Order {
     private Integer id;
 
     private String name;
 
-    private String sellerId;
+    private String seller_id;
 
-    private String buyerId;
+    private String buyer_id;
 
-    private Date createTime;
+    private Date create_time;
 
     private String state;
 
     private BigDecimal price;
 
-    private Integer goodsId;
+    private Integer goods_id;
 
-    private Date updateTime;
-
-    private static final long serialVersionUID = 1L;
+    private Date update_time;
 
     public Integer getId() {
         return id;
@@ -41,28 +38,28 @@ public class Order implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getSellerId() {
-        return sellerId;
+    public String getSeller_id() {
+        return seller_id;
     }
 
-    public void setSellerId(String sellerId) {
-        this.sellerId = sellerId == null ? null : sellerId.trim();
+    public void setSeller_id(String seller_id) {
+        this.seller_id = seller_id == null ? null : seller_id.trim();
     }
 
-    public String getBuyerId() {
-        return buyerId;
+    public String getBuyer_id() {
+        return buyer_id;
     }
 
-    public void setBuyerId(String buyerId) {
-        this.buyerId = buyerId == null ? null : buyerId.trim();
+    public void setBuyer_id(String buyer_id) {
+        this.buyer_id = buyer_id == null ? null : buyer_id.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
     public String getState() {
@@ -81,39 +78,19 @@ public class Order implements Serializable {
         this.price = price;
     }
 
-    public Integer getGoodsId() {
-        return goodsId;
+    public Integer getGoods_id() {
+        return goods_id;
     }
 
-    public void setGoodsId(Integer goodsId) {
-        this.goodsId = goodsId;
+    public void setGoods_id(Integer goods_id) {
+        this.goods_id = goods_id;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdate_time() {
+        return update_time;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", sellerId=").append(sellerId);
-        sb.append(", buyerId=").append(buyerId);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", state=").append(state);
-        sb.append(", price=").append(price);
-        sb.append(", goodsId=").append(goodsId);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
     }
 }

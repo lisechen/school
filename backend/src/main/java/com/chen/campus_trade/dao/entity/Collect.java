@@ -1,24 +1,21 @@
 package com.chen.campus_trade.dao.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Collect implements Serializable {
+public class Collect {
     private Integer id;
 
     private String name;
 
-    private String userId;
+    private String user_id;
 
-    private String goodsId;
-
-    private Date createTime;
-
-    private Date updateTime;
+    private String goods_id;
 
     private String state;
 
-    private static final long serialVersionUID = 1L;
+    private Date create_time;
+
+    private Date update_time;
 
     public Integer getId() {
         return id;
@@ -36,36 +33,20 @@ public class Collect implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUser_id(String user_id) {
+        this.user_id = user_id == null ? null : user_id.trim();
     }
 
-    public String getGoodsId() {
-        return goodsId;
+    public String getGoods_id() {
+        return goods_id;
     }
 
-    public void setGoodsId(String goodsId) {
-        this.goodsId = goodsId == null ? null : goodsId.trim();
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setGoods_id(String goods_id) {
+        this.goods_id = goods_id == null ? null : goods_id.trim();
     }
 
     public String getState() {
@@ -76,21 +57,19 @@ public class Collect implements Serializable {
         this.state = state == null ? null : state.trim();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", userId=").append(userId);
-        sb.append(", goodsId=").append(goodsId);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", state=").append(state);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
+    }
+
+    public Date getUpdate_time() {
+        return update_time;
+    }
+
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
     }
 }

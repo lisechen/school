@@ -1,20 +1,17 @@
 package com.chen.campus_trade.dao.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Sort implements Serializable {
+public class Sort {
     private Integer id;
 
     private String name;
 
-    private Date createTime;
+    private Date create_time;
 
-    private Date updateTime;
+    private Date update_time;
 
     private String state;
-
-    private static final long serialVersionUID = 1L;
 
     public Integer getId() {
         return id;
@@ -32,20 +29,20 @@ public class Sort implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdate_time() {
+        return update_time;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
     }
 
     public String getState() {
@@ -54,21 +51,5 @@ public class Sort implements Serializable {
 
     public void setState(String state) {
         this.state = state == null ? null : state.trim();
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", state=").append(state);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
     }
 }

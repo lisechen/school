@@ -1,16 +1,15 @@
 package com.chen.campus_trade.dao.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
+public class User {
     private Integer id;
 
-    private String wechatId;
+    private String wechat_id;
 
-    private String wechatName;
+    private String wechat_name;
 
-    private String avatarUrl;
+    private String avatar_url;
 
     private String username;
 
@@ -18,13 +17,11 @@ public class User implements Serializable {
 
     private String gender;
 
-    private Date createTime;
-
-    private Date updateTime;
-
     private String state;
 
-    private static final long serialVersionUID = 1L;
+    private Date create_time;
+
+    private Date update_time;
 
     public Integer getId() {
         return id;
@@ -34,28 +31,28 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getWechatId() {
-        return wechatId;
+    public String getWechat_id() {
+        return wechat_id;
     }
 
-    public void setWechatId(String wechatId) {
-        this.wechatId = wechatId;
+    public void setWechat_id(String wechat_id) {
+        this.wechat_id = wechat_id == null ? null : wechat_id.trim();
     }
 
-    public String getWechatName() {
-        return wechatName;
+    public String getWechat_name() {
+        return wechat_name;
     }
 
-    public void setWechatName(String wechatName) {
-        this.wechatName = wechatName;
+    public void setWechat_name(String wechat_name) {
+        this.wechat_name = wechat_name == null ? null : wechat_name.trim();
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public String getAvatar_url() {
+        return avatar_url;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl == null ? null : avatarUrl.trim();
+    public void setAvatar_url(String avatar_url) {
+        this.avatar_url = avatar_url == null ? null : avatar_url.trim();
     }
 
     public String getUsername() {
@@ -82,22 +79,6 @@ public class User implements Serializable {
         this.gender = gender == null ? null : gender.trim();
     }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
     public String getState() {
         return state;
     }
@@ -106,20 +87,19 @@ public class User implements Serializable {
         this.state = state == null ? null : state.trim();
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", wechatId='" + wechatId + '\'' +
-                ", wechatName='" + wechatName + '\'' +
-                ", avatarUrl='" + avatarUrl + '\'' +
-                ", username='" + username + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", gender='" + gender + '\'' +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                ", state='" + state + '\'' +
-                '}';
+    public Date getCreate_time() {
+        return create_time;
     }
 
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
+    }
+
+    public Date getUpdate_time() {
+        return update_time;
+    }
+
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
+    }
 }

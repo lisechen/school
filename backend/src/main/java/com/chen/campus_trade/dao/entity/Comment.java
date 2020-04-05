@@ -1,24 +1,21 @@
 package com.chen.campus_trade.dao.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Comment implements Serializable {
+public class Comment {
     private Integer id;
 
-    private Date createTime;
+    private Date create_time;
 
     private String content;
 
-    private Integer sellerId;
+    private Integer seller_id;
 
-    private Integer buyerId;
+    private Integer buyer_id;
 
-    private String commentState;
+    private String comment_state;
 
-    private Date updateTime;
-
-    private static final long serialVersionUID = 1L;
+    private Date update_time;
 
     public Integer getId() {
         return id;
@@ -28,12 +25,12 @@ public class Comment implements Serializable {
         this.id = id;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreate_time() {
+        return create_time;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
     public String getContent() {
@@ -44,53 +41,35 @@ public class Comment implements Serializable {
         this.content = content == null ? null : content.trim();
     }
 
-    public Integer getSellerId() {
-        return sellerId;
+    public Integer getSeller_id() {
+        return seller_id;
     }
 
-    public void setSellerId(Integer sellerId) {
-        this.sellerId = sellerId;
+    public void setSeller_id(Integer seller_id) {
+        this.seller_id = seller_id;
     }
 
-    public Integer getBuyerId() {
-        return buyerId;
+    public Integer getBuyer_id() {
+        return buyer_id;
     }
 
-    public void setBuyerId(Integer buyerId) {
-        this.buyerId = buyerId;
+    public void setBuyer_id(Integer buyer_id) {
+        this.buyer_id = buyer_id;
     }
 
-    public String getCommentState() {
-        return commentState;
+    public String getComment_state() {
+        return comment_state;
     }
 
-    public void setCommentState(String commentState) {
-        this.commentState = commentState == null ? null : commentState.trim();
+    public void setComment_state(String comment_state) {
+        this.comment_state = comment_state == null ? null : comment_state.trim();
     }
 
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdate_time() {
+        return update_time;
     }
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", content=").append(content);
-        sb.append(", sellerId=").append(sellerId);
-        sb.append(", buyerId=").append(buyerId);
-        sb.append(", commentState=").append(commentState);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public void setUpdate_time(Date update_time) {
+        this.update_time = update_time;
     }
 }
