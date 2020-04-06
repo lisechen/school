@@ -1,7 +1,7 @@
 ## 2.商品接口文档
 ### 2.1 查找全部商品
 ```
-GET http://192.168.1.104:8088/goods/selectall
+GET http://localhost:8088/goods/selectall
 
 返回
 {
@@ -38,7 +38,7 @@ GET http://192.168.1.104:8088/goods/selectall
 
 ### 2.2 按照商品名模糊查找
 ```
-GET http://192.168.1.104:8088/goods/select?name=羽毛球
+GET http://localhost:8088/goods/select?name=羽毛球
 
 返回
 {
@@ -75,7 +75,7 @@ GET http://192.168.1.104:8088/goods/select?name=羽毛球
 
 ### 2.3 插入一个商品
 ```
-POST http://192.168.1.104:8088/goods/insert
+POST http://localhost:8088/goods/insert
 {    
         "name": "羽毛球全新",
         "desc": "这个商品很好222222223333",
@@ -105,7 +105,7 @@ POST http://192.168.1.104:8088/goods/insert
 
 ### 2.4 修改一个商品
 ```
-POST http://192.168.1.104:8088/goods/update
+POST http://localhost:8088/goods/update
 {
         "id": 17,
         "name": "羽毛球全新",
