@@ -29,7 +29,7 @@ https://mybatis.org/generator/quickstart.html#
 		<!--</jdbcConnection>-->
 
 		<!--mysql 老版>=8.0的时候使用-->
-		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/school" userId="root" password="12345678">
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1/school?serverTimezone=Asia/Shanghai" userId="root" password="1024.">
 			<property name="nullCatalogMeansCurrent" value="true" />
 		</jdbcConnection>
 
