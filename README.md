@@ -22,5 +22,11 @@
 ## 修改的地方
 1. 修改mysql配置
 2. mybatis  
-```<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"  parameterType="com.chen.campus_trade.dao.entity.User">
 ```
+<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" 
+parameterType="com.chen.campus_trade.dao.entity.User">
+
+```
+
+
+
