@@ -7,10 +7,10 @@ Page({
   data: {
     // 首页的轮播图
     imgUrls: [
-      "http://localhost:8088/picture/campus/lunbotu7.jpg",
-      "http://localhost:8088/picture/campus/lunbotu6.jpg",
-      "http://localhost:8088/picture/campus/lunbotu3.png",
-      "http://localhost:8088/picture/campus/lunbotu2.png",
+      "http://wechatapp.com:8088/picture/campus/lunbotu7.jpg",
+      "http://wechatapp.com:8088/picture/campus/lunbotu6.jpg",
+      "http://wechatapp.com:8088/picture/campus/lunbotu3.png",
+      "http://wechatapp.com:8088/picture/campus/lunbotu2.png",
     ],
     indicatorDots: true,  //是否显示面板指示点
     autoplay: true,      //是否自动切换
