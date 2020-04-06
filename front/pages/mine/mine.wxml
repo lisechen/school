@@ -1,8 +1,8 @@
 <!--pages/mine/mine.wxml-->
 <text></text>
-<view class="avatar"><view wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='btn-logn'>
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-     <text class="userinfo-nickname">{{userInfo.nickName}}</text></view>
+<view class="avatar">
+  <image class="userinfo-avatar" src="{{userInfo.avatar_url}}"></image>
+  <text class="userinfo-nickname">{{userInfo.username}}</text>
 </view>
 <view class="cell" >
 <navigator class="item arrow" url="../information/information"  >

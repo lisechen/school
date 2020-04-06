@@ -1,4 +1,15 @@
 /**index.wxss**/
+/* 必须设置page height背景才会铺满屏幕 设置container无效*/
+page{
+    height: 100%;
+}
+
+.guide-bg{
+  background-image: url('https://upload-images.jianshu.io/upload_images/1512008-c82ceefb000238aa.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -6,21 +17,30 @@
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 160rpx;
+  height: 160rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #333;
+  font-size: 40rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.no-login{
+  margin-top: 130rpx; 
 }
 
-.enter-home{
-   width: 100rpx;
-   height: 44rpx;
+.welcome-title{
+  color: #333;
+  font-size: 50rpx;
+  margin-top: -130rpx;
 }
+
+.btn{
+  width: 400rpx;
+  margin-top: 350rpx;
+  color: #333;
+}
+
