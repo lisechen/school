@@ -20,4 +20,5 @@
 推送到远端 
 
 ## 修改的地方
-修改mysql配置
+1. 修改mysql配置
+2. mybatis   <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"  parameterType="com.chen.campus_trade.dao.entity.User">
