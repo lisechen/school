@@ -103,6 +103,8 @@ POST http://localhost:8088/goods/insert
 }
 ```
 
+
+
 ### 2.4 修改一个商品
 ```
 POST http://localhost:8088/goods/update
