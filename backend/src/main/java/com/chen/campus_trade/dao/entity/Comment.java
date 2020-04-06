@@ -13,7 +13,7 @@ public class Comment {
 
     private Integer buyer_id;
 
-    private String comment_state;
+    private Integer comment_state;
 
     private Date update_time;
 
@@ -38,7 +38,7 @@ public class Comment {
     }
 
     public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
+        this.content = content;
     }
 
     public Integer getSeller_id() {
@@ -57,12 +57,12 @@ public class Comment {
         this.buyer_id = buyer_id;
     }
 
-    public String getComment_state() {
+    public Integer getComment_state() {
         return comment_state;
     }
 
-    public void setComment_state(String comment_state) {
-        this.comment_state = comment_state == null ? null : comment_state.trim();
+    public void setComment_state(Integer comment_state) {
+        this.comment_state = comment_state;
     }
 
     public Date getUpdate_time() {

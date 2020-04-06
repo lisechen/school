@@ -45,7 +45,7 @@ public class CollectController {
     @RequestMapping("/selectall")
     @ResponseBody
     public List<Collect> ListGoods() {
-        return collectservice.ListCollect();
+        return collectservice.listAll();
     }
 
     @RequestMapping("/select")

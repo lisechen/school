@@ -7,7 +7,7 @@
     <result column="seller_id" jdbcType="VARCHAR" property="seller_id" />
     <result column="buyer_id" jdbcType="VARCHAR" property="buyer_id" />
     <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
-    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="state" jdbcType="INTEGER" property="state" />
     <result column="price" jdbcType="DECIMAL" property="price" />
     <result column="goods_id" jdbcType="INTEGER" property="goods_id" />
     <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
@@ -20,6 +20,19 @@
     <include refid="Base_Column_List" />
     from order
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByLikeName" resultType="com.chen.campus_trade.dao.entity.Order">
+    select
+    <include refid="Base_Column_List"/>
+    from `order`
+    WHERE name LIKE #{like_name}
+  </select>
+  <select id="selectAllByState" resultType="com.chen.campus_trade.dao.entity.Order">
+    SELECT
+    <include refid="Base_Column_List"/>
+    from order
+    WHERE
+    state=#{state}
   </select>
   <insert id="insert" parameterType="com.chen.campus_trade.dao.entity.Order">
     insert into order (id, name, seller_id, 
@@ -133,5 +146,10 @@
       goods_id = #{goods_id,jdbcType=INTEGER},
       update_time = #{update_time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateStateByPrimaryKey">
+    UPDATE ORDER
+    set state=#{state}
+    where id=#{id}
   </update>
 </mapper>

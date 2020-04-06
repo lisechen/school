@@ -1,13 +1,11 @@
 package com.chen.campus_trade.controller;
 
+import com.chen.campus_trade.base.BaseResponse;
 import com.chen.campus_trade.util.PageRequest;
 import com.chen.campus_trade.dao.entity.Goods;
 import com.chen.campus_trade.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,31 +31,35 @@ public class GoodsController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String update(Goods goods) {
+    public BaseResponse<String> update(@RequestBody Goods goods) {
         int result = goodsservice.Update(goods);
         if (result >= 1) {
-            return "修改成功";
+            return BaseResponse.success("修改成功");
         } else {
-            return "修改失败";
+            return BaseResponse.fail("修改失败");
         }
 
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public Goods insert(Goods goods) {
-        return goodsservice.insertGoods(goods);
+    public  BaseResponse<Goods>  insert(@RequestBody Goods goods) {
+        Goods goodsRes = goodsservice.insertGoods(goods);
+        return BaseResponse.success(goodsRes);
     }
 
     @RequestMapping("/selectall")
     @ResponseBody
-    public List<Goods> ListGoods() {
-        return goodsservice.ListGoods();
+    public BaseResponse<List<Goods>>  ListGoods() {
+        List<Goods> goodsList = goodsservice.ListGoods();
+        return BaseResponse.success(goodsList);
     }
 
     @RequestMapping("/select")
     @ResponseBody
-    public List<Goods> ListGoodsByname(String name) {
-        return goodsservice.findByName(name);
+    public BaseResponse<List<Goods>>  ListGoodsByname(String name)
+    {
+        List<Goods> goodsList = goodsservice.findByName(name);
+        return BaseResponse.success(goodsList);
     }
     @RequestMapping("/selectbysort")
     @ResponseBody

@@ -1,6 +1,9 @@
 package com.chen.campus_trade.dao.mapper;
 
 import com.chen.campus_trade.dao.entity.Sort;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SortMapper {
     int insert(Sort record);
@@ -12,4 +15,9 @@ public interface SortMapper {
     int updateByPrimaryKeySelective(Sort record);
 
     int updateByPrimaryKey(Sort record);
+
+    List<Sort> selectList();
+
+    int updateStatusByPrimaryKey(@Param("id") int id,@Param("state") int state);
+
 }

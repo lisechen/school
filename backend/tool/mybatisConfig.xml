@@ -60,7 +60,12 @@ https://mybatis.org/generator/quickstart.html#
 		<!--</table>-->
 
 		<!-- 使用%表示，通配符，代表库中所有的表都被选中，可以配置为具体的表名，那样的话只会配置的表生成 -->
-		<table tableName="goods" enableSelectByExample="false" enableDeleteByPrimaryKey="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+		<table tableName="goods" enableSelectByExample="false"
+			   enableDeleteByPrimaryKey="false"
+			   enableDeleteByExample="false"
+			   enableCountByExample="false"
+			   enableUpdateByExample="false">
+
 			<property name="useActualColumnNames" value="true"/>
 		</table>
 

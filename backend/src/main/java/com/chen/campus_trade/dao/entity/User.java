@@ -15,9 +15,9 @@ public class User {
 
     private String mobile;
 
-    private String gender;
+    private Integer gender;
 
-    private String state;
+    private Integer state;
 
     private Date create_time;
 
@@ -71,20 +71,21 @@ public class User {
         this.mobile = mobile == null ? null : mobile.trim();
     }
 
-    public String getGender() {
+
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender == null ? null : gender.trim();
+    public void setGender(Integer gender) {
+        this.gender = gender;
     }
 
-    public String getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state == null ? null : state.trim();
+    public void setState(Integer state) {
+        this.state = state == null ? null : state;
     }
 
     public Date getCreate_time() {

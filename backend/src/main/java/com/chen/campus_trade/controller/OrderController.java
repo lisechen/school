@@ -45,8 +45,8 @@ public class OrderController {
 
     @RequestMapping("/selectall")
     @ResponseBody
-    public List<Order> ListOrder() {
-        return orderService.ListOrder();
+    public List<Order> ListOrder(){
+        return orderService.listAll();
     }
 
     @RequestMapping("/select")

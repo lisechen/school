@@ -1,5 +1,8 @@
 package com.chen.campus_trade.util;
 import com.github.pagehelper.PageInfo;
+
+import java.util.List;
+
 public class PageUtils {
 
     /**
@@ -8,13 +11,13 @@ public class PageUtils {
      * @param page
      * @return
      */
-    public static PageResult getPageResult(PageRequest pageRequest, PageInfo<?> pageInfo) {
+    public static PageResult getPageResult(PageRequest pageRequest, int pageNum, int pageSize, int total, int totalPage, List<?> result) {
         PageResult pageResult = new PageResult();
-        pageResult.setPageNum(pageInfo.getPageNum());
-        pageResult.setPageSize(pageInfo.getPageSize());
-        pageResult.setTotalSize(pageInfo.getTotal());
-        pageResult.setTotalPages(pageInfo.getPages());
-        pageResult.setContent(pageInfo.getList());
+        pageResult.setPageNum(pageNum);
+        pageResult.setPageSize(pageSize);
+        pageResult.setTotalSize(total);
+        pageResult.setTotalPages(totalPage);
+        pageResult.setContent(result);
         return pageResult;
     }
 }

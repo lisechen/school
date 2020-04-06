@@ -1,8 +1,8 @@
 package com.chen.campus_trade.service;
 
-import com.chen.campus_trade.dao.mapper.SortMapper;
 import com.chen.campus_trade.dao.entity.Sort;
-import com.chen.campus_trade.dao.entity.SortExample;
+import com.chen.campus_trade.dao.mapper.SortMapper;
+import com.chen.campus_trade.enums.SortState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +15,7 @@ public class SortService {
     private SortMapper sortMapper;
 
     public List<Sort> ListSort() {
-        SortExample example = new SortExample();
-        return sortMapper.selectByExample(example);
+        return sortMapper.selectList();
 
     }
 
@@ -32,7 +31,7 @@ public class SortService {
     }
 
     public int delete(int id) {
-        int a = sortMapper.deleteByPrimaryKey(id);
+        int a = sortMapper.updateStatusByPrimaryKey(id, SortState.DISABLE.getCode());
         return a;
 
     }
