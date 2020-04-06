@@ -14,13 +14,14 @@ public class Order {
 
     private Date create_time;
 
-    private String state;
+    private Integer state;
 
     private BigDecimal price;
 
     private Integer goods_id;
 
     private Date update_time;
+
 
     public Integer getId() {
         return id;
@@ -35,7 +36,7 @@ public class Order {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getSeller_id() {
@@ -43,7 +44,7 @@ public class Order {
     }
 
     public void setSeller_id(String seller_id) {
-        this.seller_id = seller_id == null ? null : seller_id.trim();
+        this.seller_id = seller_id;
     }
 
     public String getBuyer_id() {
@@ -51,7 +52,7 @@ public class Order {
     }
 
     public void setBuyer_id(String buyer_id) {
-        this.buyer_id = buyer_id == null ? null : buyer_id.trim();
+        this.buyer_id = buyer_id;
     }
 
     public Date getCreate_time() {
@@ -62,12 +63,12 @@ public class Order {
         this.create_time = create_time;
     }
 
-    public String getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state == null ? null : state.trim();
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public BigDecimal getPrice() {

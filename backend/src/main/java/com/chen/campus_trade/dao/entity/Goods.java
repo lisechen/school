@@ -13,7 +13,7 @@ public class Goods {
 
     private Double price;
 
-    private String status;
+    private Integer status;
 
     private Date create_time;
 
@@ -36,7 +36,7 @@ public class Goods {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getDesc() {
@@ -44,7 +44,7 @@ public class Goods {
     }
 
     public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+        this.desc = desc;
     }
 
     public String getImage() {
@@ -52,7 +52,7 @@ public class Goods {
     }
 
     public void setImage(String image) {
-        this.image = image == null ? null : image.trim();
+        this.image = image;
     }
 
     public Double getPrice() {
@@ -63,12 +63,12 @@ public class Goods {
         this.price = price;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Date getCreate_time() {
@@ -100,6 +100,6 @@ public class Goods {
     }
 
     public void setCategory(String category) {
-        this.category = category == null ? null : category.trim();
+        this.category = category;
     }
 }

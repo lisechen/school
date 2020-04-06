@@ -8,73 +8,90 @@ Page({
    */
   data: {
     username: '',
-    gender: '女',//假数据
-    mobile: '123',//假数据
+    gender: '',
+    mobile: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('onLoad userInfo: ', app.globalData.userInfo);
+    console.log('information onLoad userInfo: ', app.globalData.userInfo);
 
     if(app.globalData.userInfo){
+      let { gender } = app.globalData.userInfo;
+      let genderStr = '';
+      if(gender == 1){
+        genderStr = '男';
+      }else if(gender == 2){
+        genderStr = '女';
+      }
       this.setData({
-        username: app.globalData.userInfo.nickName
+        username: app.globalData.userInfo.username,
+        gender: genderStr,
+        mobile: app.globalData.userInfo.mobile
       });
     }
-    
+  },
+
+  onReady: function(e){
+    console.log('onReady');
+    this.initValidator();
   },
 
   bindinguser: function (e) {
-    console.log('bindinguser ', e);
-    console.log('data ', this.data);
+    console.log('bindinguser ', e.detail.value);
     if (app.globalData.userInfo) {
-      let val = wx.getStorageSync("openId");
-      let { value } = e.detail
-     // if (!this.validatorInstance.checkData(value)) return
-      let info = e.detail.value
-      // console.log(info.name)
-      console.log('begin req');
+      let { value} = e.detail;
+      if (!this.validatorInstance.checkData(value)) return
+      let { gender, username, mobile} = value;
+      if(gender === '男'){
+        gender = 1;
+      }else if(gender === '女'){
+        gender = 2;
+      }else{
+        wx.showToast({
+          title: '性别只能为男或女',
+          icon: 'none'
+        })
+        return;
+      }
+      let { id, wechat_id, wechat_name, avatar_url } = app.globalData.userInfo;
+      let info = { id, wechat_id, wechat_name, avatar_url, gender, username, mobile};
+      console.log('begin req ', info);
       wx.request({
         url: 'http://wechatapp.com:8088/user/update',
-        // data: {
-        //   openId: val,
-        //   username: e.detail.value.username,
-        //   gender: e.detail.value.gender,
-        //   mobile: e.detail.value.mobile,
-        // },
-        data: {
-          openId: val,
-          username: this.data.username,
-          gender: this.data.gender,
-          mobile: this.data.mobile,
-        },
+        method: 'POST',
+        data: info,
         success: function (res) {
           console.log('res ',res.data);
           let code = res.data.code
           if (code == 0) {
 
             wx.showToast({
-              title: '注册信息成功',
+              title: '信息修改成功',
               icon: 'success',
-              duration: 3000,
+              duration: 2000,
               mask: true
             })
-            wx.navigateTo({
-              url: '../mine/mine',
-            })
+
+            //更新数据
+            app.globalData.userInfo.username = username;
+            app.globalData.userInfo.gender = gender;
+            app.globalData.userInfo.mobile = mobile;
+
+            setTimeout(()=>{
+              wx.navigateBack({});
+            }, 2000);
 
           } else {
             wx.showToast({
-              title: '注册信息失败',
+              title: '信息修改失败',
               icon: 'error',
               duration: 1200,
               mask: true
             })
-            wx.redirectTo({
-              url: '../mine/mine'
-            })
+            
           }
         },
         fail: function(e){
@@ -102,10 +119,8 @@ Page({
           required: true,
         },
         mobile: {
-          required: true
+          required: true,
         },
-
-
       },
       messages: {
         username: {
@@ -114,15 +129,12 @@ Page({
         gender: {
           required: '请输入性别',
         },
-        moblie: {
-          required: '请输入语言'
+        mobile: {
+          required: '请输入手机号',
         },
       },
     })
 
   },
-  onReady() {
-   // this.initValidator()
-    //this.checkBinding()
-  },
+
 })

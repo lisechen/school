@@ -1,18 +1,15 @@
 package com.chen.campus_trade.service;
 
 import com.chen.campus_trade.dao.entity.User;
-import com.chen.campus_trade.dao.entity.UserExample;
+import com.chen.campus_trade.dao.mapper.UserMapper;
+import com.chen.campus_trade.enums.UserStatus;
 import com.chen.campus_trade.util.PageRequest;
 import com.chen.campus_trade.util.PageResult;
+import com.chen.campus_trade.util.PageUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-import com.chen.campus_trade.dao.mapper.UserMapper;
-import com.chen.campus_trade.util.PageUtils;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class UserService {
@@ -20,20 +17,23 @@ public class UserService {
     private UserMapper userMapper;
 
     public List<User> selectByUserName(String username) {
-        UserExample example = new UserExample();
-        UserExample.Criteria criteria = example.createCriteria();
-        criteria.andUsernameLike("%" + username + "%");
-        return userMapper.selectByExample(example);
+        String likeName = "%" + username + "%";
+        return userMapper.selectByLikeName(likeName);
     }
 
     public List<User> ListUser() {
-        UserExample example = new UserExample();
-        return userMapper.selectByExample(example);
+        return userMapper.selectAll();
 
     }
 
     public User insertUser(User user) {
-        userMapper.insert(user);
+        User ifAlreadyExist = userMapper.selectByWechatName(user.getWechat_name());
+        //如果已经存在就不用再插入了
+        if (null != ifAlreadyExist) {
+            return ifAlreadyExist;
+        }
+        user.setUsername(user.getWechat_name());
+        userMapper.insertSelective(user);
         return user;
     }
 
@@ -42,14 +42,15 @@ public class UserService {
 
         return userMapper.updateByPrimaryKeySelective(user);
     }
-
-    public int delete(int id) {
-        int a = userMapper.deleteByPrimaryKey(id);
-        return a;
-    }
+//
+//    public int delete(int id) {
+//        int a = userMapper.deleteByPrimaryKey(id);
+//        return a;
+//    }
 
     public PageResult findPage(PageRequest pageRequest) {
-        return PageUtils.getPageResult(pageRequest, getPageInfo(pageRequest));
+//        return PageUtils.getPageResult(pageRequest, g);
+        return getPageInfo(pageRequest);
     }
 
     /*
@@ -57,26 +58,29 @@ public class UserService {
      * @param pageQuery
      * @return
      */
-    private PageInfo<User> getPageInfo(PageRequest pageRequest) {
+    private PageResult getPageInfo(PageRequest pageRequest) {
         int pageNum = pageRequest.getPageNum();
         int pageSize = pageRequest.getPageSize();
-        PageHelper.startPage(pageNum, pageSize);
-        List<User> sysMenus = userMapper.selectPage();
-        return new PageInfo<User>(sysMenus);
+        int offset = (pageNum - 1) * pageSize;
+        List<User> result = userMapper.selectPage(offset, pageSize);
+        int total = userMapper.count();
+        int totalPages = total / pageSize;
+        return PageUtils.getPageResult(pageRequest, pageNum, pageSize, total, totalPages, result);
     }
-        /*public List<User> selectByUserId(int id) {
-            RcCustomerTagItemQuery query = new RcCustomerTagItemQuery();
-            RcCustomerTagItemQuery.Criteria criteria = query.createCriteria();
-            criteria.andTagIdEqualTo(tagId);
-            List<RcCustomerTagItem> rcCustomerTagItems = rcCustomerTagItemMapper.selectByExample(query);
-            return rcCustomerTagItems;
-            public List<User> selectByUserId(int id) {
-                UserExample example = new UserExample();
-                UserExample.Criteria criteria = example.createCriteria();
-                criteria.andIdEqualTo(id);
-                List<User> users = userMapper.selectByExample(example);
-                return user;*/
 
+
+    /**
+     * 软删除
+     * @param id
+     * @return
+     */
+    public int delete(int id) {
+      return   userMapper.updateStatusByPrimaryKey(id, UserStatus.DISABLE.getCode());
+    }
+
+    public User selectByUserWeChatName(String name) {
+        return userMapper.selectByWechatName(name);
+    }
 }
 
 

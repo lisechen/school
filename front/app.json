@@ -16,10 +16,10 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#AB82FF",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "校园二手",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#ADD8E6"
+    "backgroundColor": "#ffffff"
   },
   "tabBar": {
     "color": "#AB82FF",

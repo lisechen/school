@@ -10,7 +10,7 @@ Page({
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     userInfo: {
-      nickName: '个人信息',
+      nickName: '',
       avatarUrl: '',
     },
 
@@ -20,81 +20,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    // 查看是否授权
-    wx.getSetting({
-      success: function (res) {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function (res) {
+    console.log('mine onLoad');
 
-              //用户已经授权过
-            }
-          })
-        }
-      }
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+    console.log('app.globalData.userInfo', app.globalData.userInfo);
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    var studentId = that.data.studentId;
-    var nickName = 'userInfo.nickName';
-    var avatarUrl = 'userInfo.avatarUrl';
-    wx.getStorage({  //异步获取缓存值studentId
-      key: 'studentId',
-      success: function (res) {
-        that.setData({
-          studentId: res.data
-        })
-      }
-    })
-    //get缓存值用户名字，并设置
-    try {
-      var value = wx.getStorageSync('nickName')
-      console.log(value);
-      if (value) {
-        that.setData({
-          [nickName]: value
-        })
-      }
-    } catch (e) {
-      // Do something when catch error
+    console.log('mine onShow');
+    //没有进入页面或者返回该页面都刷新一下数据
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
     }
-
-    //get缓存值用户头像，并设置
-    wx.getStorage({
-      key: 'avatarUrl',
-      success: function (res) {
-        that.setData({
-          [avatarUrl]: res.data
-        })
-      },
-    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
   onPullDownRefresh() {
     wx.setNavigationBarTitle({
       title: '我的信息'
@@ -146,7 +91,6 @@ Page({
               delta: 1
             })
           }
-
         }
       })
     }

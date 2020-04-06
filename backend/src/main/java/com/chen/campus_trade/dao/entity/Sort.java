@@ -11,7 +11,7 @@ public class Sort {
 
     private Date update_time;
 
-    private String state;
+    private Integer state;
 
     public Integer getId() {
         return id;
@@ -26,7 +26,7 @@ public class Sort {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public Date getCreate_time() {
@@ -45,11 +45,11 @@ public class Sort {
         this.update_time = update_time;
     }
 
-    public String getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state == null ? null : state.trim();
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

@@ -6,7 +6,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
     <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
-    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="state" jdbcType="INTEGER" property="state" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, create_time, update_time, state
@@ -16,6 +16,12 @@
     <include refid="Base_Column_List" />
     from sort
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectList" resultType="com.chen.campus_trade.dao.entity.Sort">
+    SELECT
+    <include refid="Base_Column_List"/>
+    WHERE
+    state=1
   </select>
   <insert id="insert" parameterType="com.chen.campus_trade.dao.entity.Sort">
     insert into sort (id, name, create_time, 
@@ -85,5 +91,10 @@
       update_time = #{update_time,jdbcType=TIMESTAMP},
       state = #{state,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateStatusByPrimaryKey">
+    UPDATE sort
+    set state=#{state}
+    where id=#{id}
   </update>
 </mapper>

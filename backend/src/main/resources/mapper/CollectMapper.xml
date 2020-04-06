@@ -6,7 +6,7 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="user_id" jdbcType="VARCHAR" property="user_id" />
     <result column="goods_id" jdbcType="VARCHAR" property="goods_id" />
-    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="state" jdbcType="INTEGER" property="state" />
     <result column="create_time" jdbcType="TIMESTAMP" property="create_time" />
     <result column="update_time" jdbcType="TIMESTAMP" property="update_time" />
   </resultMap>
@@ -18,6 +18,21 @@
     <include refid="Base_Column_List" />
     from collect
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectLike" resultType="com.chen.campus_trade.dao.entity.Collect">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM collect
+    WHERE NAME
+    LIKE #{like_name}
+
+  </select>
+  <select id="selectListAll" resultType="com.chen.campus_trade.dao.entity.Collect">
+    select
+    <include refid="Base_Column_List"/>
+    FROM collect
+    where
+    state = #{state}
   </select>
   <insert id="insert" parameterType="com.chen.campus_trade.dao.entity.Collect">
     insert into collect (id, name, user_id, 
@@ -109,5 +124,11 @@
       create_time = #{create_time,jdbcType=TIMESTAMP},
       update_time = #{update_time,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateStatusByPrimaryKey">
+    UPDATE collect
+    set state=#{state}
+    where
+    id=#{id}
   </update>
 </mapper>

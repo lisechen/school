@@ -50,7 +50,7 @@ public class CommentController {
     @RequestMapping("/selectall")
     @ResponseBody
     public List<Comment> ListComment() {
-        return commentService.ListComment();
+        return commentService.listAll();
     }
 
     @RequestMapping("/select")

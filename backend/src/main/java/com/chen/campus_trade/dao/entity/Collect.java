@@ -11,7 +11,7 @@ public class Collect {
 
     private String goods_id;
 
-    private String state;
+    private Integer state;
 
     private Date create_time;
 
@@ -30,7 +30,7 @@ public class Collect {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getUser_id() {
@@ -38,7 +38,7 @@ public class Collect {
     }
 
     public void setUser_id(String user_id) {
-        this.user_id = user_id == null ? null : user_id.trim();
+        this.user_id = user_id;
     }
 
     public String getGoods_id() {
@@ -46,15 +46,15 @@ public class Collect {
     }
 
     public void setGoods_id(String goods_id) {
-        this.goods_id = goods_id == null ? null : goods_id.trim();
+        this.goods_id = goods_id;
     }
 
-    public String getState() {
+    public Integer getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state == null ? null : state.trim();
+    public void setState(Integer state) {
+        this.state = state;
     }
 
     public Date getCreate_time() {
