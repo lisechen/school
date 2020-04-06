@@ -12,10 +12,9 @@
 添加commit 信息
 
 4. git pull 
-先更新远端的变化（别人的提交）
-<br/>
-有时候merge的时候需要填入备注信息
-执行 shift+冒号键 在左下角显示冒号的时候再输入 wq 然后enter就可以了
+<br/>先更新远端的变化（别人的提交）
+<br/>有时候merge的时候需要填入备注信息
+<br/>执行 shift+冒号键 在左下角显示冒号的时候再输入 wq 然后enter就可以了
 
 4. git push origin manster
 推送到远端 
