@@ -16,7 +16,7 @@
 <br/>有时候merge的时候需要填入备注信息
 <br/>执行 shift+冒号键 在左下角显示冒号的时候再输入 wq 然后enter就可以了
 
-4. git push origin manster
+4. git push origin master
 推送到远端 
 
 ## 修改的地方
