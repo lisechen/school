@@ -11,22 +11,36 @@
 </swiper>
 <view  class="a"><text>  热门分类</text></view>
 <view class="nav">
-<view class="aa">
-<image src="../img/shubao_a.png"></image>
+<view class="aa" bindtap='bindToSearch_aa' ><image src="../img/shubao_a.png"></image>
 <text>闲置课本</text></view>
-<view class="ab"><image src="../img/yusan_a.png"></image>
+<view class="ab" bindtap='bindToSearch_ab'><image src="../img/yusan_a.png"></image>
 <text>生活用品</text></view>
-<view class="ac"><image src="../img/sport.png"></image>
+<view class="ac" bindtap='bindToSearch_ac'><image src="../img/sport.png"></image>
 <text>运动休闲</text></view>
-<view class="ad"><image src="../img/shouji_a.png"></image>
+<view class="ad" bindtap='bindToSearch_ad'><image src="../img/shouji_a.png"></image>
 <text>手机数码</text></view>
 </view>
 <view class="tuijian">
 <text>推荐</text>
 </view>
-<view class="fabu">
-<view  class="aaa">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-</view>
-</view>
+ <view class='search-list'>
+ <block wx:for="{{resultList}}" wx:key="{{resultList}}">
+<view class='movie-wrapper' data-id='{{item.id}}' bindtap='toThingDetail'>
+      <view class='movie-content'>
+        <image class='avatar ' src='{{item.avatar_url}}'></image>
+        <view class='total'>
+            <text class='name'>商品名称：{{item.name}}</text>
+            <text class='desc'>发布者：{{item.username}}</text>
+            <text class='desc'>{{item.time}}</text>
+        </view>
+          <text class='price'>￥{{item.price}}</text>
+      </view>
+     <view>
+          <view> <text class='desc'>商品描述：{{item.desc}}</text></view>
+     </view> <image class='poster' src='{{item.image}}' lazy-load></image>
+    </view>
+     </block>
+
+<view class='bottom' wx:if="{{isBookSearchShow}}" wx:key="{{isBookSearchShow}}"></view>
+  </view>
 

@@ -11,14 +11,8 @@ public interface CommentMapper {
     int insertSelective(Comment record);
 
     Comment selectByPrimaryKey(Integer id);
-
     int updateByPrimaryKeySelective(Comment record);
-
+    List<Comment> selectByGoods(@Param("goods_id") Integer id);
     int updateByPrimaryKey(Comment record);
 
-    List<Comment> selectByLikeName(@Param("like_name") String likeName);
-
-    int updateStateByPrimaryKey(@Param("id")int id, @Param("state") int code);
-
-    List<Comment> selectAllByState(int code);
 }

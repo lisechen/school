@@ -1,7 +1,9 @@
 package com.chen.campus_trade.controller;
 
+import com.chen.campus_trade.base.BaseResponse;
 import com.chen.campus_trade.dao.entity.Collect;
 import com.chen.campus_trade.service.CollectService;
+import com.chen.campus_trade.vo.CollectVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -40,6 +42,16 @@ public class CollectController {
     public Collect insert(Collect collect) {
 
         return collectservice.insertCollect(collect);
+    }
+    @RequestMapping("/selectbyuser")
+    @ResponseBody
+    public BaseResponse<List<CollectVo>> ListGoodsByUser(Integer user_id)
+    {
+        List<CollectVo> goodsList = collectservice.findByUser(user_id);
+        if (null == goodsList) {
+            return new BaseResponse<>(-1, "商品不存在", null);
+        }
+        return BaseResponse.success(goodsList);
     }
 
     @RequestMapping("/selectall")

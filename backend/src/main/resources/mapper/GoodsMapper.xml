@@ -29,22 +29,28 @@
         FROM goods
         WHERE NAME
         LIKE #{like_name}
+        and status=1
+         order by id desc
+    </select>
+    <select id="selectByUser" resultType="com.chen.campus_trade.dao.entity.Goods">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM goods
+        WHERE user_id=#{user_id,jdbcType=INTEGER} and status=1 order by id desc
     </select>
     <select id="selectByCategory" resultType="com.chen.campus_trade.dao.entity.Goods">
-
         SELECT
         <include refid="Base_Column_List"/>
         FROM goods
         WHERE
-        category=#{category}
-        and status=1
+        category=#{category} and status=1
 
     </select>
     <select id="selectListByStatus" resultType="com.chen.campus_trade.dao.entity.Goods">
         select
         <include refid="Base_Column_List"/>
         FROM goods
-        WHERE `status`=#{status}
+        WHERE `status`=#{status} order by id desc
     </select>
     <select id="selectPage" resultType="com.chen.campus_trade.dao.entity.Goods">
         select

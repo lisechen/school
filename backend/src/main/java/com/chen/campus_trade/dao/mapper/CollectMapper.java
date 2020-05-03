@@ -18,7 +18,8 @@ public interface CollectMapper {
 
     List<Collect> selectLike(@Param("like_name") String likeCollect);
 
-    int updateStatusByPrimaryKey(int id);
+    List<Collect> selectByUser(@Param("user_id") Integer id);
+    int updateStatusByPrimaryKey(@Param("id")int id,@Param("state") int code);
 
     List<Collect> selectListAll(@Param("state") int state);
 }

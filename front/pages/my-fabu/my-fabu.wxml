@@ -1,0 +1,33 @@
+<!--pages/my-collect/my-collect.wxml-->
+
+ <view class='search-list'>
+   <block wx:if="{{resultList.length>0}}"> 
+   <view wx:for="{{resultList}}" wx:key="{{resultList}}">
+<view class='movie-wrapper' data-id='{{item.id}}' bindtap='toThingDetail'>
+      <view class='movie-content'>
+        <image class='poster' src='{{item.image}}'></image>  
+        <view class='total'>
+            <text class='name'>商品名称：{{item.name}}</text>
+            <text class='desc'>发布者：{{item.username}}</text>
+            <text class='desc'>{{item.time}}</text>
+        </view>
+          <text class='price'>￥{{item.price}}</text>
+      </view>
+   
+
+     </view> 
+   <view class="delete" catchtap="deletePost" data-id="{{item.id}}"  data-index='{{index}}'>   
+          <icon type="cancel" size="16"></icon>
+          <text class="del"  >删除</text></view>
+       </view>
+     </block>
+  <block wx:else>
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">
+        暂无发布</view>
+      <view class="weui-media-box__desc"></view>
+
+    </view>
+  </block>
+</view>
+

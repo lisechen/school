@@ -1,5 +1,4 @@
-//my.js
-var StudentId = './mySetting/mySetting.js'
+
 var app = getApp()
 Page({
 
@@ -16,6 +15,30 @@ Page({
 
   },
 
+  information: function (e) {
+    wx.navigateTo({
+      url: '../information/information',
+    })
+  },
+
+  // 跳转到历史发布二手页面
+  collect: function (e) {
+    wx.navigateTo({
+      url: '../my-collect/my-collect',
+    })
+  },
+  order: function (e) {
+    wx.navigateTo({
+      url: '../order/order',
+    })
+  },
+
+  // 跳转到历史发布二手页面
+  fabu: function (e) {
+    wx.navigateTo({
+      url: '../my-fabu/my-fabu',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -50,86 +73,4 @@ Page({
       wx.hideNavigationBarLoading(); //隐藏加载icon
     }, 2000)
   },
-  bindGetUserInfo: function (e) {
-    var that = this;
-    var nickName = that.data.userInfo.nickName;
-    var avatarUrl = that.data.userInfo.avatarUrl;
-
-    if (e.detail.userInfo) {
-      //用户按了允许授权按钮
-      var userInfo = e.detail.userInfo;
-      console.log(userInfo)
-      that.setData({
-        nickName: userInfo.nickName
-      })
-      that.setData({
-        avatarUrl: userInfo.avatarUrl
-      })
-      try {//同步设置nickName
-        wx.setStorageSync('nickName', userInfo.nickName)
-      } catch (e) {
-      }
-
-      wx.setStorage({
-        key: 'avatarUrl',
-        data: userInfo.avatarUrl,
-      })
-    } else {
-      //用户按了拒绝按钮
-      wx.showModal({
-        title: '提示',
-        content: '请授权登录',
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-            wx.navigateBack({
-              delta: 1
-            })
-          } else {
-            console.log('用户点击取消')
-            wx.navigateBack({
-              delta: 1
-            })
-          }
-        }
-      })
-    }
-  },
-  bindClear: function (e) {
-    var that = this;
-    var nickName = 'userInfo.nickName';
-    var avatarUrl = 'userInfo.avatarUrl';
-
-    try {//同步设置nickName
-      wx.setStorageSync('nickName', '')
-    } catch (e) {
-    }
-    wx.setStorage({
-      key: 'studentId',
-      data: '',
-    })
-    wx.setStorage({
-      key: 'passWord',
-      data: '',
-    })
-    wx.setStorage({
-      key: 'avatarUrl',
-      data: '',
-    })
-    that.setData({
-      [nickName]: '个人信息',
-      [avatarUrl]: ''
-    })
-    wx.showModal({
-      title: '提示',
-      content: '退出账号成功',
-      success: function () {
-        wx.switchTab({
-          url: '/pages/shouye/shouye',
-        })
-      }
-    })
-  },
-
-
 })

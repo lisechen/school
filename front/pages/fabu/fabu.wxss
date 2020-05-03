@@ -11,6 +11,10 @@ page {
   width: 100%;
   height: 80rpx;
 }
+.title_image {
+  margin: auto 0rpx;
+  border: 1rpx solid #d3d3d3;
+}
  
 .title_text {
   margin-left: 20rpx;
@@ -92,13 +96,17 @@ page {
 .addImv .upFile {
   width: 180rpx;
   height: 180rpx;
-  position: relative;
-  padding: 0rpx 7rpx;
+  margin: 20rpx 20rpx;
+  background-color: #f2f6f9;
+  text-align: center;
+  line-height: 180rpx;
+  border-radius: 5px;
   margin-left: 40rpx;
-  border: 1px solid #c0ccda;
+  background-image: url('http://localhost:8088/picture/campus/aa.jpg');
+  background-size: cover;
 }
  
-.addImv .upFile .itemImv {
+.addImv .itemImv {
   width: 180rpx;
   height: 180rpx;
   padding: 0rpx 7rpx;

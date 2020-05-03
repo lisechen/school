@@ -1,25 +1,29 @@
 {
   "pages": [
-        "pages/index/index",
-        "pages/information/information",
+      "pages/indexa/indexa",
+    "pages/index/index",
     "pages/shouye/shouye",
-
-    "pages/movie-detail/movie-detail",
-
-    "pages/fabu/fabu",
-    "pages/logs/logs",                                                                 
+    "pages/goods-detail/goods-detail",
     "pages/comment/comment",
     "pages/mine/mine",
     "pages/search/search",
-    "pages/searchin/searchin",
-    "pages/search/searchresult/searchresult"
+    "pages/searchresult/searchresult",
+    "pages/information/information",
+    "pages/fabu/fabu",
+    "pages/logs/logs",
+    "pages/sortresult/sortresult",
+    "pages/order/order",
+    "pages/my-collect/my-collect",
+    "pages/my-fabu/my-fabu"
+  
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#AB82FF",
     "navigationBarTitleText": "校园二手",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#ffffff"
+    "backgroundColor": "#ffffff",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#AB82FF",
@@ -37,12 +41,6 @@
         "iconPath": "pages/img/fabu_a.png",
         "selectedIconPath": "pages/img/fabu_b.png",
         "text": "发布"
-      },
-      {
-        "pagePath": "pages/comment/comment",
-        "text": "消息",
-        "iconPath": "pages/img/comment_a.png",
-        "selectedIconPath": "pages/img/comment_b.png"
       },
       {
         "pagePath": "pages/mine/mine",

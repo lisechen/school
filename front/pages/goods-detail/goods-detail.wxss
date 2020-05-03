@@ -1,0 +1,419 @@
+
+.detail {
+  padding-bottom: 30rpx;
+}
+.desc {
+  font-size: 22rpx;
+    color:#666;
+    font-weight: 530;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.coverFadeIn {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
+  z-index: 10;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  transition: opacity 300ms linear;
+}
+
+.detail-cont {
+  color: #666;
+
+  background-color: 	#F0FFFF;
+  height: 500rpx;
+}
+.detail-image {
+  position: absolute;
+  left: 50%;
+  margin-left: -230rpx;
+  width: 460rpx;
+  height: 500rpx;
+  margin-top: -520rpx;
+  margin-bottom: 20rpx;
+}
+.detail-sale {
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+  margin-top: 550rpx;
+}
+.detail-selling-price-img {
+  flex: 1;
+  height: 100%;
+  width: 80rpx;
+ 
+}
+.detail-price {
+  background-color:#99CCFF;
+  flex: 5;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+}
+.detail-sell {
+  flex: 5;
+  background:linear-gradient(to right, #408080 , #99CCFF);
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.detail-bottom {
+  display: flex;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 120rpx;
+
+}
+.detail-bottom .addCart {
+  display: flex;
+  flex-direction: column;
+  color:rgb(54, 54, 66);
+  flex: 1;
+  line-height: 50rpx;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+.addCart  text{
+font-size: 25rpx;
+color: #8B5F65;
+}
+
+
+.addCart  image{
+  width: 80rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  /* margin-bottom: 10rpx;*/
+
+}
+.lixnxi {
+  color: white;
+  text-align: center;
+  background-color: #CCCCFF;
+  flex: 1;
+  line-height: 100rpx;
+}
+.buyNow {
+  color: white;
+  text-align: center;
+  background-color:#9966FF;
+  flex: 1;
+  line-height: 100rpx;
+}
+.paySlideUp {
+  position: fixed;
+  bottom: 0rpx;
+  height: 640rpx;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+  transition: bottom 300ms linear;
+}
+.paySlideDown {
+   position: fixed;
+  bottom: -640rpx;
+  height: 640rpx;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999;
+  transition: bottom 300ms linear;
+}
+
+.book-detail {
+  display: flex;
+}
+.pay-img{
+  width: 240rpx;
+  height: 280rpx;
+  margin: 20rpx;
+}
+.book-messege {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; 
+  font-size: 30rpx;
+}
+.title {
+  margin-top: 5rpx;
+  background-color: white;
+  width: 70%;
+  height: 80rpx;
+}
+.title_text {
+  margin-left: 20rpx;
+  width: 100%;
+  height: 50rpx;
+  padding-top: 10rpx;
+  display: flex;
+}
+.title_text text {
+  font-size: 30rpx;
+}
+ 
+.title_text input {
+  font-size: 30rpx;
+  width: 60vw;
+  margin-left: 20rpx;
+}
+ 
+.textarea {
+  height: 100rpx;
+  font-size: 30rpx;
+  margin-left: 40rpx;
+  width: 500rpx;
+}
+
+.book-messege .mobile{
+  display: flex;
+  flex-direction: row;
+
+  height: 20rpx;
+}
+
+.book-messege .mobile .a textarea{
+  background-color: rgba(255, 238, 0, 0.918);
+  height: 40rpx;
+  font-size: 35rpx;
+  margin-left: 20rpx;
+  width: 300rpx;
+  border:solid 3rpx;
+  border-radius: 20%;
+} 
+.bookPrice {
+  color: #f40;
+}
+.delete {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 48rpx;
+  color: #666;
+}
+
+.content {
+  background-color: #f3f3f3;
+}
+.attention,
+.prompt {
+  padding: 10rpx 20rpx;
+  font-family: tahoma,arial,\5FAE\8F6F\96C5\9ED1,sans-serif;
+  font: 12px/1.5 tahoma,arial,"\5b8b\4f53";
+  font: 400 12px/1.5 "Microsoft Yahei",tahoma,arial
+}
+.book-buy {
+  margin: 30rpx auto;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  width: 700rpx;
+  height: 80rpx;
+  background: linear-gradient(to right, #FF7802,#FF4A00);
+  border-radius: 40rpx;
+}
+.movie-content {
+  display: flex;
+  flex-direction: row;
+  padding-left: 30rpx;
+  align-items: stretch;
+  margin: 10rpx 0;
+}
+.movie-content .avatar {
+  width: 100rpx;
+  height: 100rpx; 
+  border-radius: 50%; 
+  
+}
+.total {
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  justify-content: space-around;
+}
+.name {
+  font-weight: 600;
+  color: #4a4a4a;
+  font-size: 25rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.desc text {
+  font-size: 30rpx;
+    color:#666;
+    font-weight: 530;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-left: 30rpx;
+}
+.time {
+  font-size: 15rpx;
+    color: #9e9e9e;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+ 
+ .add-cart .add-cart-btn{background:linear-gradient(to right,#CC99FF, hsl(224, 30%, 65%));
+color: #fff;
+border-radius: 50px; 
+padding:0px;
+width:150px;
+height:35px; 
+line-height: 35px;
+bottom: 0rpx;
+margin-right:15px;
+}
+/* pages/wantDetail/wantDetail.wxss */
+ 
+page {
+  background-color: #f1f5fc;
+}
+ 
+.qiu {
+  width: 100%;
+  background-color: white;
+}
+ 
+.qiu_titleAndUser {
+  margin-left: 20rpx;
+}
+ 
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.user {
+  width: 100%;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+ 
+.userImg {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+ 
+.userName {
+  font-size: 30rpx;
+  color: #566f98;
+}
+ 
+.text_detail {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+}
+ 
+.img {
+  width: 90%;
+  height: 500rpx;
+  margin: 20rpx 20rpx;
+}
+ 
+.countImg {
+  width: 50rpx;
+  height: 50rpx;
+}
+ 
+.count {
+  font-size: 20rpx;
+  margin-left: 5rpx;
+}
+ 
+.time {
+  font-size: 25rpx;
+  color: #757575;
+  margin-left: 410rpx;  
+}
+ 
+.reply {
+  width: 100%;
+  background-color: white;
+  margin-top: 20rpx;
+  margin-bottom: 100rpx;
+}
+ 
+.replyUser {
+  padding-top: 10rpx;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+}
+ 
+.reply_content {
+  width: 80%;
+  font-size: 30rpx;
+  margin-left: 90rpx;
+  margin-top: -30rpx;
+}
+ 
+.reply_time {
+  width: 260rpx;
+  height: 50rpx;
+  font-size: 25rpx;
+  color: #757575;
+  margin-left: 480rpx;  
+}
+ 
+.huifu {
+  position: absolute;
+  margin-left: 90rpx;
+  margin-top: -90rpx;
+}
+ 
+.huifu_text {
+  font-size: 30rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+ 
+.ask {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+ 
+.input {
+  width: 100%;
+  border: 1rpx solid #f1f1f1;
+  border-radius: 30rpx;
+  background: #f1f5fc;
+  font-size: 25rpx;
+  text-align: center;
+}
+ 
+.button {
+  background: #6fb442;
+  color: white;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  width: 130rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12rpx 20rpx;
+}

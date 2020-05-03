@@ -13,6 +13,7 @@ justify-content: space-between;
 background-color: 	#FCFCFC;
 border-bottom: 22rpx solid 	#E6E6FA;
 
+
 }
 .nav .aa{
   display: flex;
@@ -103,4 +104,78 @@ color: #8B5F65;
 .tuijian text{
   font-size: 35rpx;
   color: 	#878787;
+}
+
+
+.movie-wrapper {
+  padding-left: 30rpx;
+  border-bottom: 1px solid #e9e9e9;
+  box-sizing: border-box;
+}
+.movie-content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 10rpx 0;
+}
+.movie-content .avatar {
+  width: 100rpx;
+  height: 100rpx; 
+  border-radius: 50%; 
+  
+}
+.total {
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  justify-content: space-around;
+}
+.name {
+  font-weight: 600;
+  color: #4a4a4a;
+  font-size: 25rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.desc {
+  font-size: 22rpx;
+    color:#666;
+    font-weight: 530;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.time {
+  font-size: 15rpx;
+    color: #9e9e9e;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.price {
+     font-size: 36rpx;
+    color: #f40;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.bottom {
+   color: #666;
+  text-align: center;
+  font-size: 30rpx;
+}
+.movie-wrapper .poster {
+  width: 200rpx;
+  height: 200rpx;
+   padding-left: 100rpx;
+}
+.movie-content .poster {
+  width: 150rpx;
+  height: 150rpx; 
+  
+
 }

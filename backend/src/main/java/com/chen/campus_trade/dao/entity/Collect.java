@@ -7,9 +7,9 @@ public class Collect {
 
     private String name;
 
-    private String user_id;
+    private Integer user_id;
 
-    private String goods_id;
+    private Integer goods_id;
 
     private Integer state;
 
@@ -30,22 +30,22 @@ public class Collect {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
-    public String getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(String user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
-    public String getGoods_id() {
+    public Integer getGoods_id() {
         return goods_id;
     }
 
-    public void setGoods_id(String goods_id) {
+    public void setGoods_id(Integer goods_id) {
         this.goods_id = goods_id;
     }
 
