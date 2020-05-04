@@ -40,4 +40,8 @@ mybatis:
 #  helperDialect: mysql
 #  reasonable: true
 #  supportMethodsArguments: true
+#logging:
+#  level:
+#    root: DEBUG
+
 #  params: count=countSql

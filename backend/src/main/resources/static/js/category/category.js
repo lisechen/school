@@ -104,10 +104,12 @@ $(function () {
 
 //提交表单
 function formSubmit(obj) {
+
+    console.log('form=='+JSON.stringify(obj.field))
     $.ajax({
         type: "POST",
-        data: $("#userForm").serialize(),
-        url: "/userManager/updateUser",
+        data: obj.field,
+        url: "/categoryManager/updateCategory",
         success: function (data) {
             if (data.code == 1) {
                 layer.alert(data.msg, function () {
@@ -139,7 +141,7 @@ function openUser(data, title) {
         $("#id").val("");
     } else {
         $("#id").val(data.id);
-        $("#username").val(data.username);
+        $("#name").val(data.name);
         $("#mobile").val(data.mobile);
         $("#gender").val(data.gender);
         form.render('select');
@@ -250,16 +252,18 @@ layui.use('upload', function () {
 
     var uploadInst = upload.render({
         elem: "#test1",
-        url: "http://localhost:8088/goods/upload",
+        url: "http://localhost:8088/goods/uploadWeb",
         before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
             obj.preview(function(index, file, result){
                 $('#image').attr('src', result); //图片链接（base64）
             });
         },
         done: function (res) {
-            console.log(res);
-            layui.$("#image").attr('src', 'http://localhost:8088' + res.data.src);
-            layui.$("#image").attr('value', 'http://localhost:44304' + res.data.src);
+
+            layui.$("#image").attr('src', 'http://localhost:8088/picture/category/' + res.data.src);
+            layui.$("#image").attr('value', 'http://localhost:8088/picture/category/' + res.data.src);
+
+            form.render('#image');
             alert('上传成功');
         },
         error: function () {

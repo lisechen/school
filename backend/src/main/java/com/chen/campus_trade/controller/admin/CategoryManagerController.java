@@ -1,6 +1,7 @@
 package com.chen.campus_trade.controller.admin;
 
 
+import com.chen.campus_trade.dao.entity.Category;
 import com.chen.campus_trade.dao.entity.User;
 import com.chen.campus_trade.dto.UserSearchDTO;
 import com.chen.campus_trade.service.CategoryService;
@@ -88,22 +89,25 @@ public class CategoryManagerController {
      * @auther: youqing
      * @date: 2018/11/22 10:14
      */
-    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> setUser(User user) {
-        logger.info("设置用户[新增或更新]！user:" + user);
+    public Map<String, Object> setUser(Category category) {
+        logger.info("设置分类[新增或更新]！:category"+ category);
         Map<String, Object> data = new HashMap();
-        if (user.getId() == null) {
-//            data = userservice.addUser(user);
+        data.put("code", 1);
+        if (category.getId() == null) {
+            categoryService.insertSort(category);
+            data.put("msg", "添加成功！");
         } else {
-
-            data.put("code", 1);
+            categoryService.Update(category);
             data.put("msg", "修改成功！");
-            logger.info("用户[新增]，结果=新增成功！");
-//            userservice.Update(user);
+            logger.info("分类[新增]，结果=新增成功！");
+
         }
         return data;
     }
+
+
 
 
     /**
