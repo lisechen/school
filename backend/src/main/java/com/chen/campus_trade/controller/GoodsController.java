@@ -1,6 +1,7 @@
 package com.chen.campus_trade.controller;
 
 import com.chen.campus_trade.base.BaseResponse;
+import com.chen.campus_trade.enums.GoodsStatus;
 import com.chen.campus_trade.util.PageRequest;
 import com.chen.campus_trade.dao.entity.Goods;
 import com.chen.campus_trade.service.GoodsService;
@@ -47,7 +48,27 @@ public class GoodsController {
         } else {
             return BaseResponse.fail("修改失败");
         }
+    }
 
+    @RequestMapping(value = "/find_page")
+    @ResponseBody
+    public BaseResponse<List<Goods>>  findPage(
+            @RequestParam(value = "page",defaultValue = "1") Integer pageNum,
+            @RequestParam(value = "size",defaultValue = "10") Integer size
+
+    ) {
+        return goodsservice.findPage(pageNum, size);
+    }
+
+
+    @RequestMapping(value = "/disable")
+    public BaseResponse<String> disable(@RequestParam("id") Integer goodsId) {
+        return goodsservice.updateStatusByPk(goodsId, GoodsStatus.DISABLE.getCode());
+    }
+
+    @RequestMapping(value = "/enable")
+    public BaseResponse<String> enable(@RequestParam("id") Integer goodsId) {
+        return goodsservice.updateStatusByPk(goodsId, GoodsStatus.ABLE.getCode());
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
@@ -100,12 +121,6 @@ public class GoodsController {
         GoodsVo goods = goodsservice.selectByPrimaryKey(id);
         return BaseResponse.success(goods);
 
-    }
-
-    @RequestMapping(value = "/findpage")
-    @ResponseBody
-    public Object findPage(PageRequest pageQuery) {
-        return goodsservice.findPage(pageQuery);
     }
 
 

@@ -187,7 +187,7 @@
   </update>
   <update id="updateStatusByPrimaryKey">
     UPDATE USER
-    SET `status`=#{status}
+    SET `state`=#{status}
     where id=#{id}
   </update>
 </mapper>

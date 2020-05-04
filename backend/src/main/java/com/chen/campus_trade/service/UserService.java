@@ -1,5 +1,6 @@
 package com.chen.campus_trade.service;
 
+import com.chen.campus_trade.base.BaseResponse;
 import com.chen.campus_trade.dao.entity.User;
 import com.chen.campus_trade.dao.mapper.UserMapper;
 import com.chen.campus_trade.enums.UserStatus;
@@ -16,9 +17,10 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<User> selectByUserName(String username) {
+    public BaseResponse<List<User>> selectByUserName(String username) {
         String likeName = "%" + username + "%";
-        return userMapper.selectByLikeName(likeName);
+        List<User> uList = userMapper.selectByLikeName(likeName);
+        return BaseResponse.success(uList);
     }
 
     public List<User> ListUser() {
@@ -42,15 +44,39 @@ public class UserService {
 
         return userMapper.updateByPrimaryKeySelective(user);
     }
+
+    public BaseResponse disableByPk(Integer uid) {
+
+      int result=  userMapper.updateStatusByPrimaryKey(uid, UserStatus.DISABLE.getCode());
+        if (result >= 1) {
+            return BaseResponse.success(null) ;
+        } else {
+            return BaseResponse.failMsg("禁用失败");
+        }
+    }
+
+    public BaseResponse enableByPk(Integer uid) {
+
+        int result=  userMapper.updateStatusByPrimaryKey(uid, UserStatus.ABLE.getCode());
+        if (result >= 1) {
+            return BaseResponse.success(null) ;
+        } else {
+            return BaseResponse.failMsg("解禁失败");
+        }
+    }
 //
 //    public int delete(int id) {
 //        int a = userMapper.deleteByPrimaryKey(id);
 //        return a;
 //    }
 
-    public PageResult findPage(PageRequest pageRequest) {
-//        return PageUtils.getPageResult(pageRequest, g);
-        return getPageInfo(pageRequest);
+    public BaseResponse<List<User>> findPage(Integer pageNum, Integer pageSize) {
+        int offset = (pageNum-1)*pageSize;
+        List<User> userList = userMapper.selectPage(offset, pageSize);
+        int total = userMapper.count();
+        BaseResponse<List<User>> res = BaseResponse.success(userList);
+        res.setTotal(total);
+        return  res;
     }
 
     /*

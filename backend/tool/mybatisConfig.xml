@@ -24,15 +24,15 @@ https://mybatis.org/generator/quickstart.html#
 		</commentGenerator>
 
 		<!--mysql 老版<8.0的时候使用-->
-		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/school" userId="root" password="12345678">-->
-			<!--<property name="nullCatalogMeansCurrent" value="true" />-->
-		<!--</jdbcConnection>-->
-
-		<!--mysql 老版>=8.0的时候使用-->
-		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1/school?serverTimezone=Asia/Shanghai" userId="root" password="1024.">
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/school" userId="root" password="12345678">
 			<property name="nullCatalogMeansCurrent" value="true" />
 		</jdbcConnection>
 
+		<!--&lt;!&ndash;mysql 老版>=8.0的时候使用&ndash;&gt;
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1/school?serverTimezone=Asia/Shanghai" userId="root" password="1024.">
+			<property name="nullCatalogMeansCurrent" value="true" />
+		</jdbcConnection>
+-->
 
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
@@ -60,7 +60,7 @@ https://mybatis.org/generator/quickstart.html#
 		<!--</table>-->
 
 		<!-- 使用%表示，通配符，代表库中所有的表都被选中，可以配置为具体的表名，那样的话只会配置的表生成 -->
-		<table tableName="category" enableSelectByExample="false"
+		<table tableName="manager" enableSelectByExample="false"
 			   enableDeleteByPrimaryKey="false"
 			   enableDeleteByExample="false"
 			   enableCountByExample="false"

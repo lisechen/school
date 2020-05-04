@@ -1,5 +1,6 @@
 package com.chen.campus_trade.service;
 
+import com.chen.campus_trade.base.BaseResponse;
 import com.chen.campus_trade.dao.entity.Goods;
 import com.chen.campus_trade.dao.entity.User;
 import com.chen.campus_trade.dao.mapper.GoodsMapper;
@@ -114,15 +115,14 @@ public class GoodsService {
         return goodsVos;
     }
 
-    public PageResult findPage(PageRequest pageRequest) {
-        int pageNum = pageRequest.getPageNum();
-        int pageSize = pageRequest.getPageSize();
+    public BaseResponse<List<Goods>> findPage(Integer pageNum , Integer pageSize) {
         int offset = (pageNum-1)*pageSize;
         List<Goods> goodsList = goodsMapper.selectPage(offset, pageSize);
         int total = goodsMapper.selectCount();
         int totalPage= (total+pageSize-1)/pageSize;
-
-        return PageUtils.getPageResult(pageRequest, pageNum, pageSize, total, totalPage,goodsList);
+        BaseResponse<List<Goods>> res = BaseResponse.success(goodsList);
+        res.setTotal(total);
+        return  res;
     }
 
     /*
@@ -146,4 +146,8 @@ public class GoodsService {
         return goodsMapper.updateStatusByPrimaryKey(id, GoodsStatus.DISABLE.getCode());
     }
 
+    public BaseResponse<String> updateStatusByPk(Integer goodsId, Integer status) {
+        int num = goodsMapper.updateStatusByPrimaryKey(goodsId, status);
+        return BaseResponse.success(null);
+    }
 }
