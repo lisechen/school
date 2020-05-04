@@ -1,27 +1,92 @@
 /* pages/mine/mine.wxss */
 .avatar{
-  background-color:#AB82FF;
-  height: 400rpx;
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
+  margin: 40rpx;
+  background-color: #99ccff;
+  height: 300rpx;
+  justify-content: center;
 }
 .userinfo-avatar{
-  width: 150rpx;
-  height: 150rpx; 
+  width: 130rpx;
+  height: 130rpx; 
   border-radius: 50%; 
-  margin-top: 80rpx;
+  margin-top: 60rpx;
 }
 .userinfo-nickname{
   margin-top: 10rpx;
-}
-.cell{
-  font-size: 16px;
+  font-size: 32rpx;
+  color: #27384b;
+  background-size: cover;
 
 }
-.item{
-border-bottom: 1rpx solid #ddd;
-padding: 20rpx 30rpx;
+.mune_interface {
+  margin-left: 150rpx;
+  margin-right: 150rpx;
+  height: 210rpx;
+  width: 450rpx;
+  display: flex;
+}
+
+.ispublish_style {
+  margin-top: 5rpx;
+  height: 200rpx;
+  width: 200rpx;
+  background-color: #fff;
+  float: left;
+  display: flex;
+}
+
+.ispublish_style>view{
+    flex:1;
+  font-size: 10pt;
+  text-align: center;
+}
 
 
+.waspublish_style {
+  margin-top: 5rpx;
+  height: 200rpx;
+  width: 200rpx;
+  background-color: #ffffff;
+  margin-left: 22rpx;
+  float: right;
+  display: flex;
+}
+
+.waspublish_style>view{
+      flex:1;
+  font-size: 10pt;
+  text-align: center;
+}
+
+.line01 {
+  margin-left: 23rpx;
+  height: 210rpx;
+  width: 3px;
+  background-color: #fff;
+  float: left;
+}
+
+.line03 {
+  margin-left: 125rpx;
+  height: 6rpx;
+  width: 500rpx;
+  background-color: #eee;
+}
+
+.menu_image{
+  margin-top:50rpx;
+  margin-left:70rpx;
+  margin-bottom: 20rpx;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 80%;
+  display: block;
+}
+
+.word{
+  font-size: 25rpx;
+  color: #999999
 }

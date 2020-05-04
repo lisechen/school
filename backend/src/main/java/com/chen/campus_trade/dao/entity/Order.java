@@ -1,27 +1,21 @@
 package com.chen.campus_trade.dao.entity;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Order {
     private Integer id;
 
-    private String name;
+    private Integer seller_id;
 
-    private String seller_id;
-
-    private String buyer_id;
+    private Integer buyer_id;
 
     private Date create_time;
 
-    private Integer state;
-
-    private BigDecimal price;
+    private Integer status;
 
     private Integer goods_id;
 
     private Date update_time;
-
 
     public Integer getId() {
         return id;
@@ -31,27 +25,19 @@ public class Order {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSeller_id() {
+    public Integer getSeller_id() {
         return seller_id;
     }
 
-    public void setSeller_id(String seller_id) {
+    public void setSeller_id(Integer seller_id) {
         this.seller_id = seller_id;
     }
 
-    public String getBuyer_id() {
+    public Integer getBuyer_id() {
         return buyer_id;
     }
 
-    public void setBuyer_id(String buyer_id) {
+    public void setBuyer_id(Integer buyer_id) {
         this.buyer_id = buyer_id;
     }
 
@@ -63,20 +49,12 @@ public class Order {
         this.create_time = create_time;
     }
 
-    public Integer getState() {
-        return state;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getGoods_id() {

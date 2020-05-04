@@ -28,4 +28,6 @@ public interface UserMapper {
 
     User selectByWechatName(@Param("name") String name);
 
+    User selectByWechatId(@Param("wechat_id") String name);
+
 }

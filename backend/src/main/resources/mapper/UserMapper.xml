@@ -54,6 +54,13 @@
     WHERE
     wechat_name=#{name}
   </select>
+  <select id="selectByWechatId" resultType="com.chen.campus_trade.dao.entity.User">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM USER
+    WHERE
+    wechat_id=#{wechat_id}
+  </select>
 
   <insert id="insert" useGeneratedKeys="true" keyProperty="id"  parameterType="com.chen.campus_trade.dao.entity.User">
     insert into user (id, wechat_id, wechat_name, 

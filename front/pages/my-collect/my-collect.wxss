@@ -1,0 +1,121 @@
+/* pages/my/myPost/myPost.wxss */
+
+.movie-wrapper {
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+.movie-content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  margin: 10rpx 0;
+}
+.movie-content .avatar {
+  width: 100rpx;
+  height: 100rpx; 
+  border-radius: 50%; 
+  
+}
+.total {
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  justify-content: space-around;
+}
+.name {
+  font-weight: 600;
+  color: #4a4a4a;
+  font-size: 25rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.desc {
+  font-size: 22rpx;
+    color: #9e9e9e;
+    font-weight: 530;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.price {
+     font-size: 36rpx;
+    color: #f40;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.bottom {
+   color: #666;
+  text-align: center;
+  font-size: 30rpx;
+}
+.movie-wrapper .poster {
+  width: 200rpx;
+  height: 200rpx;
+   padding-left: 100rpx;
+}
+.movie-content .poster {
+  width: 150rpx;
+  height: 150rpx; 
+  
+
+}
+.bottom{
+  font-weight: 500;
+  color: #300b0b;
+  font-size: 30rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+
+
+.weui-media-box{
+  padding-bottom: 0px;
+}
+
+
+.weui-cells__title{
+  text-align: left;
+}
+textarea,input{
+  text-align: left;
+  color:#1e1e1e;
+}
+.weui-cells {
+  border:1px solid #3891f8;
+}
+.weui-cells__title{
+  padding-left: 0px;
+  color:#1e1e1e;
+}
+.weui-dialog__ft button{
+  background: none;
+  padding: 0px;
+  margin: 0px;
+}
+form .weui-dialog__bd:first-child {
+  padding:0px 30rpx 1.7em;
+  
+}
+.page__ft{
+      padding-top: 40px;
+    padding-bottom: 10px;
+}
+.delete{
+    font-size: 36rpx;
+    color: rgba(219, 35, 29, 0.788);
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: #3892f838;
+    text-align: center;
+      border-bottom: 1px solid #e9e9e9;
+}
+

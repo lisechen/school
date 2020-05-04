@@ -17,9 +17,11 @@ public interface OrderMapper {
     int updateByPrimaryKey(Order record);
 
     List<Order> selectByLikeName(@Param("like_name") String likeName);
+    List<Order> selectBySeller(@Param("seller_id") Integer id);
+    List<Order> selectByBuyer(@Param("buyer_id") Integer id);
 
-    int updateStateByPrimaryKey(@Param("id") int id,@Param("state") int code);
+    int updateStateByPrimaryKey(@Param("id") int id,@Param("status") int code);
 
-    List<Order> selectAllByState(@Param("state") int code);
+    List<Order> selectAllByStatus(@Param("status") int code);
 
 }

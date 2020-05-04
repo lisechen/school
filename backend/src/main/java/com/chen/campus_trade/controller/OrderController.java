@@ -1,12 +1,12 @@
 package com.chen.campus_trade.controller;
 
+import com.chen.campus_trade.base.BaseResponse;
 import com.chen.campus_trade.dao.entity.Order;
 import com.chen.campus_trade.service.OrderService;
+import com.chen.campus_trade.vo.OrderDto;
+import com.chen.campus_trade.vo.OrderVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,11 +38,34 @@ public class OrderController {
 
     }
 
-    @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public Order insert(Order order) {
-        return orderService.insertOrder(order);
+    @RequestMapping("/selectbybuyer")
+    @ResponseBody
+    public BaseResponse<List<OrderVo>> ListGoodsByBuyer(Integer buyer_id)
+    {
+        List<OrderVo> goodsList = orderService.findByBuyer(buyer_id);
+        if (null == goodsList) {
+            return new BaseResponse<>(-1, "商品不存在", null);
+        }
+        return BaseResponse.success(goodsList);
     }
 
+    @RequestMapping("/selectbyseller")
+    @ResponseBody
+    public BaseResponse<List<OrderVo>> ListGoodsByseller(Integer seller_id)
+    {
+        List<OrderVo> goodsList = orderService.findBySeller(seller_id);
+        if (null == goodsList) {
+            return new BaseResponse<>(-1, "商品不存在", null);
+        }
+        return BaseResponse.success(goodsList);
+    }
+
+
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    public  BaseResponse<OrderDto>  insert(@RequestBody OrderDto order) {
+        Order orderRes = orderService.insertOrder(order);
+        return BaseResponse.success(orderRes);
+    }
     @RequestMapping("/selectall")
     @ResponseBody
     public List<Order> ListOrder(){

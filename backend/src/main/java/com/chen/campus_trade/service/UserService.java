@@ -27,12 +27,12 @@ public class UserService {
     }
 
     public User insertUser(User user) {
-        User ifAlreadyExist = userMapper.selectByWechatName(user.getWechat_name());
+        User ifAlreadyExist = userMapper.selectByWechatId(user.getWechat_id());
         //如果已经存在就不用再插入了
         if (null != ifAlreadyExist) {
             return ifAlreadyExist;
         }
-        user.setUsername(user.getWechat_name());
+        user.setWechat_id(user.getWechat_id());
         userMapper.insertSelective(user);
         return user;
     }
@@ -80,6 +80,14 @@ public class UserService {
 
     public User selectByUserWeChatName(String name) {
         return userMapper.selectByWechatName(name);
+    }
+
+    public User selectByUserWeChatId(String name) {
+        return userMapper.selectByWechatId(name);
+    }
+
+    public User  selectByPrimaryKey(int id) {
+        return userMapper.selectByPrimaryKey(id);
     }
 }
 

@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface GoodsMapper {
     int insert(Goods record);
-
     int insertSelective(Goods record);
+
 
     Goods selectByPrimaryKey(Integer id);
 
@@ -17,7 +17,7 @@ public interface GoodsMapper {
     int updateByPrimaryKey(Goods record);
 
     List<Goods> selectByLikeName(@Param("like_name") String likeName);
-
+    List<Goods> selectByUser(@Param("user_id") Integer id);
     List<Goods> selectByCategory(@Param("category") String category);
 
     List<Goods> selectListByStatus(@Param("status") int code);

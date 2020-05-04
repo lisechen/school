@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container guide-bg">
-  <text class="welcome-title"> 欢迎使用校园二手小程序 </text>
+  <text class="welcome-title"> 欢迎使用校园二手交易小程序 </text>
   <view wx:if="{{!hasUserInfo && canIUse}}" class="no-login"></view>
   <view wx:else class="userinfo">
     <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatar_url}}" mode="cover"></image>

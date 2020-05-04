@@ -64,10 +64,8 @@ Page({
         method: 'POST',
         data: info,
         success: function (res) {
-          console.log('res ',res.data);
           let code = res.data.code
           if (code == 0) {
-
             wx.showToast({
               title: '信息修改成功',
               icon: 'success',
