@@ -190,4 +190,26 @@
     SET `state`=#{status}
     where id=#{id}
   </update>
+
+
+  <select id="getUserList" resultType="com.chen.campus_trade.dao.entity.User">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM USER
+    <where>
+      <if test="sysUserName != null and sysUserName != '' ">
+        and username LIKE '%' #{sysUserName} '%'
+      </if>
+      <if test="userPhone != null and userPhone != '' ">
+        and mobile  LIKE '%' #{userPhone} '%'
+      </if>
+      <if test="startTime != null and startTime != '' ">
+        and create_time &gt;  #{startTime}
+      </if>
+      <if test="endTime != null and endTime != '' ">
+        and create_time &lt;  #{endTime}
+      </if>
+    </where>
+  </select>
+
 </mapper>

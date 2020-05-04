@@ -1,6 +1,7 @@
 package com.chen.campus_trade.dao.mapper;
 
 import com.chen.campus_trade.dao.entity.User;
+import com.chen.campus_trade.dto.UserSearchDTO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -29,5 +30,7 @@ public interface UserMapper {
     User selectByWechatName(@Param("name") String name);
 
     User selectByWechatId(@Param("wechat_id") String name);
+
+    List<User> getUserList(UserSearchDTO userSearchDTO);
 
 }

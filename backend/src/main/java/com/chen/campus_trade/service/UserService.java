@@ -3,10 +3,14 @@ package com.chen.campus_trade.service;
 import com.chen.campus_trade.base.BaseResponse;
 import com.chen.campus_trade.dao.entity.User;
 import com.chen.campus_trade.dao.mapper.UserMapper;
+import com.chen.campus_trade.dto.UserSearchDTO;
 import com.chen.campus_trade.enums.UserStatus;
+import com.chen.campus_trade.util.PageDataResult;
 import com.chen.campus_trade.util.PageRequest;
 import com.chen.campus_trade.util.PageResult;
 import com.chen.campus_trade.util.PageUtils;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -115,6 +119,24 @@ public class UserService {
     public User  selectByPrimaryKey(int id) {
         return userMapper.selectByPrimaryKey(id);
     }
+
+   public PageDataResult getUserList(UserSearchDTO userSearch, Integer pageNum, Integer pageSize){
+
+       PageDataResult pageDataResult = new PageDataResult();
+       List<User> baseAdminUsers = userMapper.getUserList(userSearch);
+
+       PageHelper.startPage(pageNum, pageSize);
+
+       if(baseAdminUsers.size() != 0){
+           PageInfo<User> pageInfo = new PageInfo<>(baseAdminUsers);
+           pageDataResult.setList(baseAdminUsers);
+           pageDataResult.setTotals((int) pageInfo.getTotal());
+       }
+
+       return pageDataResult;
+
+   };
+
 }
 
 
