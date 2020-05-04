@@ -126,7 +126,7 @@ public class GoodsController {
 
     @ResponseBody
     @RequestMapping("/upload")
-    public String upload(MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IllegalStateException, IOException, IOException {
+    public String upload(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IllegalStateException, IOException, IOException {
         //String path = request.getSession().getServletContext().getRealPath("upload");
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");//设置日期格式  HH:mm:ss
         String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳

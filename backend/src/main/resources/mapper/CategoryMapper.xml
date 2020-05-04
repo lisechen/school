@@ -103,4 +103,16 @@
       image = #{image,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getList" resultType="com.chen.campus_trade.dao.entity.Category">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM category
+    <where>
+      <if test="name != null and name != '' ">
+        and `name` LIKE '%' #{name} '%'
+      </if>
+
+    </where>
+  </select>
 </mapper>
