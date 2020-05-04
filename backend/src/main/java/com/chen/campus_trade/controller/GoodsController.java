@@ -132,6 +132,7 @@ public class GoodsController {
         String date = df.format(new Date());// new Date()为获取当前系统时间，也可使用当前时间戳
        // String path = "G:/cll/learn/school/backend/src/main/resources/static/picture/goodsimg"+"/";
         String path = "G:/cll/learn/school/backend/target/classes/static/picture/goodsimg"+"/";
+//        String path = "/Users/admin/work/10.temp_work/01.lan_work/school/backend"+"/";
         UUID uuid=UUID.randomUUID();
         String originalFilename = file.getOriginalFilename();
         // String fileName = uuid.toString() + originalFilename;

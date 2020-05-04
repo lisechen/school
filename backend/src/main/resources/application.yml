@@ -2,6 +2,10 @@
 #端口号配置
 server:
   port: 8088
+#  maxHttpHeaderSize: 10240000
+  max-http-form-post-size: 30240000
+  max-http-header-size: 10240000
+
 spring:
   #模板引擎配置
 

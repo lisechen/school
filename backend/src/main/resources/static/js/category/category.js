@@ -250,7 +250,7 @@ layui.use('upload', function () {
 
     var uploadInst = upload.render({
         elem: "#test1",
-        url: "https://localhost:8088/goods/upload",
+        url: "http://localhost:8088/goods/upload",
         before: function (obj) { //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
             obj.preview(function(index, file, result){
                 $('#image').attr('src', result); //图片链接（base64）
@@ -258,8 +258,8 @@ layui.use('upload', function () {
         },
         done: function (res) {
             console.log(res);
-            layui.$("#image").attr('src', 'https://localhost:8088' + res.data.src);
-            layui.$("#image").attr('value', 'https://localhost:44304' + res.data.src);
+            layui.$("#image").attr('src', 'http://localhost:8088' + res.data.src);
+            layui.$("#image").attr('value', 'http://localhost:44304' + res.data.src);
             alert('上传成功');
         },
         error: function () {
